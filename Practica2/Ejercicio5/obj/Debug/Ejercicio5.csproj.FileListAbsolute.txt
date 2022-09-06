@@ -1,6 +1,0 @@
-C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica2\Ejercicio5\obj\Debug\Ejercicio5.csprojResolveAssemblyReference.cache
-C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica2\Ejercicio5\bin\Debug\Ejercicio5.exe.config
-C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica2\Ejercicio5\bin\Debug\Ejercicio5.exe
-C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica2\Ejercicio5\bin\Debug\Ejercicio5.pdb
-C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica2\Ejercicio5\obj\Debug\Ejercicio5.exe
-C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica2\Ejercicio5\obj\Debug\Ejercicio5.pdb
