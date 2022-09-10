@@ -1,0 +1,6 @@
+C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica3\bin\Debug\Practica3.exe.config
+C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica3\bin\Debug\Practica3.exe
+C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica3\bin\Debug\Practica3.pdb
+C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica3\obj\Debug\Practica3.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica3\obj\Debug\Practica3.exe
+C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica3\obj\Debug\Practica3.pdb

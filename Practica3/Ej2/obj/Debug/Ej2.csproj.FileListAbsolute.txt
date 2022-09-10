@@ -1,0 +1,6 @@
+C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica3\Ej2\obj\Debug\Ej2.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica3\Ej2\bin\Debug\Ej2.exe.config
+C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica3\Ej2\bin\Debug\Ej2.exe
+C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica3\Ej2\bin\Debug\Ej2.pdb
+C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica3\Ej2\obj\Debug\Ej2.exe
+C:\Users\Santiago\Downloads\UNAJ\2DO AÑO\Algoritmos y Programación\Practica3\Ej2\obj\Debug\Ej2.pdb
