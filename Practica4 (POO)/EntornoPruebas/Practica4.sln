@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 5.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntornoPruebas", "EntornoPruebas.csproj", "{2780C597-ECE6-4A75-9F47-2B34091B7E7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ej1-Ej2", "..\Ej1-Ej2\Ej1-Ej2.csproj", "{C062F7A3-2A2C-45CE-8C65-DB0980CF5AE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2780C597-ECE6-4A75-9F47-2B34091B7E7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2780C597-ECE6-4A75-9F47-2B34091B7E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2780C597-ECE6-4A75-9F47-2B34091B7E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2780C597-ECE6-4A75-9F47-2B34091B7E7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C062F7A3-2A2C-45CE-8C65-DB0980CF5AE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C062F7A3-2A2C-45CE-8C65-DB0980CF5AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C062F7A3-2A2C-45CE-8C65-DB0980CF5AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C062F7A3-2A2C-45CE-8C65-DB0980CF5AE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej1-Ej2\bin\Debug\Ej1-Ej2.exe.config
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej1-Ej2\bin\Debug\Ej1-Ej2.exe
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej1-Ej2\bin\Debug\Ej1-Ej2.pdb
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej1-Ej2\obj\Debug\Ej1-Ej2.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej1-Ej2\obj\Debug\Ej1-Ej2.exe
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej1-Ej2\obj\Debug\Ej1-Ej2.pdb

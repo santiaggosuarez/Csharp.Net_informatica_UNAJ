@@ -1,0 +1,12 @@
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4\EntornoPruebas\bin\Debug\EntornoPruebas.exe.config
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4\EntornoPruebas\bin\Debug\EntornoPruebas.exe
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4\EntornoPruebas\bin\Debug\EntornoPruebas.pdb
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4\EntornoPruebas\obj\Debug\EntornoPruebas.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4\EntornoPruebas\obj\Debug\EntornoPruebas.exe
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4\EntornoPruebas\obj\Debug\EntornoPruebas.pdb
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\EntornoPruebas\bin\Debug\EntornoPruebas.exe.config
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\EntornoPruebas\bin\Debug\EntornoPruebas.exe
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\EntornoPruebas\bin\Debug\EntornoPruebas.pdb
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\EntornoPruebas\obj\Debug\EntornoPruebas.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\EntornoPruebas\obj\Debug\EntornoPruebas.exe
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\EntornoPruebas\obj\Debug\EntornoPruebas.pdb
