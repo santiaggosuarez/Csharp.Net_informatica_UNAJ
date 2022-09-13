@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntornoPruebas", "EntornoPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ej1-Ej2", "..\Ej1-Ej2\Ej1-Ej2.csproj", "{C062F7A3-2A2C-45CE-8C65-DB0980CF5AE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ej3-Ej-4-Ej5-Ej6", "..\Ej3-Ej-4-Ej5-Ej6\Ej3-Ej-4-Ej5-Ej6.csproj", "{2328C26C-009E-4479-9337-3A1AE90E3894}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,5 +22,9 @@ Global
 		{C062F7A3-2A2C-45CE-8C65-DB0980CF5AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C062F7A3-2A2C-45CE-8C65-DB0980CF5AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C062F7A3-2A2C-45CE-8C65-DB0980CF5AE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2328C26C-009E-4479-9337-3A1AE90E3894}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2328C26C-009E-4479-9337-3A1AE90E3894}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2328C26C-009E-4479-9337-3A1AE90E3894}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2328C26C-009E-4479-9337-3A1AE90E3894}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

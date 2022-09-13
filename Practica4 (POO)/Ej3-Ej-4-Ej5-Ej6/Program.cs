@@ -1,15 +1,14 @@
 ﻿/*
  * Created by SharpDevelop.
  * User: Santiago
- * Date: 12/9/2022
- * Time: 9:50 a. m.
+ * Date: 13/9/2022
+ * Time: 9:22 a. m.
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
-using System.Collections;
 
-namespace EntornoPruebas
+namespace Ej3_Ej_4_Ej5_Ej6
 {
 	class Program
 	{
@@ -22,10 +21,10 @@ namespace EntornoPruebas
 				Nombre (Edad) <TAB> DNI.
 				Ejemplo: Juan Perez (40) 2098745 */
 				
-				Console.WriteLine("\n=====================EJ 3==============================\n ");
-			
-				Persona yo = new Persona("Santiago", 25, 40856658);
-				yo.imprimir();
+			Console.WriteLine("\n=====================EJ 3==============================\n ");
+		
+			Persona yo = new Persona("Santiago", 25, 40856658);
+			yo.imprimir();
 				
 		      /*    4) Escriba un programa de aplicación (Main) que permita al usuario crear varias personas y guardarlas
 				en un ArrayList. Una vez finalizada la entrada de datos, el programa debe imprimir en la consola el listado
