@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections;
 
 namespace Ej3_Ej_4_Ej5_Ej6
 {
@@ -44,7 +45,33 @@ namespace Ej3_Ej_4_Ej5_Ej6
 			
 			Console.WriteLine("\n===================EJ 4 y EJ 5=========================\n ");
 			
+			ArrayList listaPersonas1 = CrearListaPersonas();
+			ImprimirPersonas(listaPersonas1);
+			
+			/* 6) Agregue a la clase Persona un método esMayorQue(Persona p) que devuelva verdadero si la persona que
+				recibe el mensaje es más grande que la persona recibida como parámetro. Utilícelo para realizar un
+				programa de aplicación (Main) que al recibir la lista de personas del ejercicio anterior retorne la persona
+				de mayor edad del grupo.*/
+			
+			Console.WriteLine("\n=====================EJ 6==============================\n ");
+			
+			Persona persona1 = new Persona("Isabel II", 96, 12334455);
+			Persona persona2 = new Persona("Santiago", 25, 40856658);
+			Console.WriteLine("¿{0} es mayor que {1}? {2}", persona1.getNombre(), persona2.getNombre(), persona1.esMayorQue(persona2) );
+			
+			Persona pMayor = new Persona();
+			pMayor = MayorPersona(listaPersonas1);
+			Console.Write("La persona mayor de la lista es: ");
+			pMayor.imprimir();
+			
+			Console.Write("\nPress any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+		
+		// Funcion para crear la lista de personas pedida en los puntos 4 y 5
+		public static ArrayList CrearListaPersonas(){
 			ArrayList listaPersonas = new ArrayList();
+			Persona p = new Persona();
 			bool salir = false;
 			
 			Console.WriteLine("Ingrese nombre de pila, DNI y edad o fecha de nacimiento (DD/MM/AAAA): ");
@@ -53,80 +80,95 @@ namespace Ej3_Ej_4_Ej5_Ej6
 			if (datos == ""){salir = true;}
 			while (!salir) {
 				
-				listaPersonas.Add(datos);
-				
-				//Console.WriteLine("Ingrese nombre de pila, DNI y edad o fecha de nacimiento: ");
-				datos = Console.ReadLine();
-				if (datos == ""){salir = true;}
-			}
-			
-			int cont = 1;
-			foreach(string i in listaPersonas){
-				string[] datosDiv = i.Split(' ');
+				string[] datosDiv = datos.Split(' ');
 				
 				string nombre = datosDiv[0];
 				int dni = int.Parse(datosDiv[1]);
 				string edad = datosDiv[2];
 				
-				if (edad.Length < 3)
+				int edadInt;
+				bool esNum = int.TryParse(edad, out edadInt);
+				if ( esNum )
 					{
-					// Llamada a la funcion si el dato ingresado es una edad
-					int edadInt = int.Parse(edad);
-					Persona p = new Persona(nombre, edadInt, dni);
-					
-					Console.WriteLine("{0}) {1} ({2}) {3}", cont, p.getNombre(), p.getEdad(), p.getDNI());
-					//Console.Write(cont + ") ");
-					//p.imprimir();
-					cont++;
+					p = new Persona(nombre, edadInt, dni);
 					}
 				else
 					{
-					// Llamada a la funcion si el dato ingresado es un DateTime
 					DateTime fechaNac = new DateTime();
 					fechaNac = DateTime.Parse(edad);
-					Persona p = new Persona(nombre, fechaNac, dni);
-					
-					Console.WriteLine("{0}) {1} ({2}) {3}", cont, p.getNombre(), p.getEdad(), p.getDNI());
-					//Console.Write(cont + ") ");
-					//p.imprimir();
-					cont++;
-					}	
-				}
-			
-			
-			Console.Write("\nPress any key to continue . . . ");
-			Console.ReadKey(true);
+					p = new Persona(nombre, fechaNac, dni);
+					}
+				
+				listaPersonas.Add(p);
+				
+				//Console.WriteLine("Ingrese nombre de pila, DNI y edad o fecha de nacimiento: ");
+				datos = Console.ReadLine();
+				if (datos == ""){salir = true;}
+			}
+			return listaPersonas;
 		}
+		
+		// Funcion para imprimir la lista de personas pedida en el punto 4
+		public static void ImprimirPersonas(ArrayList lista){
+			int cont = 1;
+			foreach(Persona i in lista){
+				
+				Console.WriteLine("{0}) {1} ({2}) {3}", cont, i.getNombre(), i.getEdad(), i.getDNI());
+				//Console.Write(cont + ") ");
+				//p.imprimir();
+				cont++;
+			}
+		}
+		
+		// Funcion para retornar la persona mayor de una lista pedida en el punto 6
+		public static Persona MayorPersona(ArrayList lista){
+			
+			Persona personaMayor =  new Persona();
+			
+			foreach(Persona i in lista){
+				
+				if ( i.esMayorQue(personaMayor) ) {
+					personaMayor = i;
+					}
+				}
+			return personaMayor;
+		}
+		
 	}
 	
 	class Persona
 	{
-		
+		// Constructor por defecto
 		public Persona() {
 			
 		}
 		
+		// Constructor con edad int
 		public Persona(string nombre, int edad, int DNI){
 			this.nombre = nombre;
 			this.edad = edad;
 			this.DNI = DNI;
 		}
 		
+		// Constructor con edad DateTime
 		public Persona(string nombre, DateTime fechaNac, int DNI){
 			this.nombre = nombre;
 			this.DNI = DNI;
 			edad = calcularEdad(fechaNac);
 		}
 		
+		// Propiedades o estados
 		private string nombre;
 		private int edad;
 		private int DNI;
-		private DateTime fechaNacimiento;
+		// private DateTime fechaNacimiento;
 		
+		// Metodo para imprimir los datos de una persona
 		public void imprimir(){
 			Console.WriteLine("{0} ({1}) \t {2}", nombre, edad, DNI);
 		}
 		
+		// Metodos getters y setters
 		public string getNombre(){
 			return nombre;
 		}
@@ -139,6 +181,21 @@ namespace Ej3_Ej_4_Ej5_Ej6
 		public int getDNI(){
 			return DNI;
 		}
+		
+		// Metodo para retornar si una persona es mayor que otra dada por parametro
+		public bool esMayorQue(Persona p){
+			
+			int edad1 = this.getEdad();
+			int edad2 = p.getEdad();
+			
+			if ( edad1 > edad2 )
+				{ return true; }
+			
+			else
+				{ return false; }
+		}
+		
+		// Metodo para calcular la edad de una persona a partir de su DateTime fecha de nacimiento
 		int calcularEdad(DateTime fechaNacimiento){
 			
 			int anio = DateTime.Now.Year - fechaNacimiento.Year;

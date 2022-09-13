@@ -1,0 +1,6 @@
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej3-Ej-4-Ej5-Ej6\obj\Debug\Ej3-Ej-4-Ej5-Ej6.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej3-Ej-4-Ej5-Ej6\bin\Debug\Ej3-Ej-4-Ej5-Ej6.exe.config
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej3-Ej-4-Ej5-Ej6\bin\Debug\Ej3-Ej-4-Ej5-Ej6.exe
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej3-Ej-4-Ej5-Ej6\bin\Debug\Ej3-Ej-4-Ej5-Ej6.pdb
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej3-Ej-4-Ej5-Ej6\obj\Debug\Ej3-Ej-4-Ej5-Ej6.exe
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej3-Ej-4-Ej5-Ej6\obj\Debug\Ej3-Ej-4-Ej5-Ej6.pdb
