@@ -51,9 +51,7 @@ namespace Ej1_Ej2
 	class Hora
 	{	
 		// Constructor por defecto
-		public Hora(){
-			
-		}
+		public Hora(){ }
 		
 		// Constructor con los parametros enteros
 		public Hora(int horas,int minutos,int seg){
@@ -89,7 +87,7 @@ namespace Ej1_Ej2
 			
 		}
 		
-		// Propiedades
+		// Atributos o propiedades
 		private int horas;
 		private int minutos;
 		private int segundos;

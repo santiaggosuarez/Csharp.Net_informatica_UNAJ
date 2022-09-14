@@ -1,15 +1,14 @@
 ﻿/*
  * Created by SharpDevelop.
  * User: Santiago
- * Date: 12/9/2022
- * Time: 9:50 a. m.
+ * Date: 14/9/2022
+ * Time: 9:03 a. m.
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
-using System.Collections;
 
-namespace EntornoPruebas
+namespace Ej7
 {
 	class Program
 	{
@@ -56,5 +55,4 @@ namespace EntornoPruebas
 			}
 		}
 	}
-	
 }

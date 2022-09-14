@@ -1,0 +1,6 @@
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej7\bin\Debug\Ej7.exe.config
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej7\bin\Debug\Ej7.exe
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej7\bin\Debug\Ej7.pdb
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej7\obj\Debug\Ej7.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej7\obj\Debug\Ej7.exe
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4 (POO)\Ej7\obj\Debug\Ej7.pdb

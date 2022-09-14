@@ -74,7 +74,7 @@ namespace Ej3_Ej_4_Ej5_Ej6
 			Persona p = new Persona();
 			bool salir = false;
 			
-			Console.WriteLine("Ingrese nombre de pila, DNI y edad o fecha de nacimiento (DD/MM/AAAA): ");
+			Console.WriteLine("Ingrese nombre de pila, DNI y edad o fecha de nacimiento (DD/MM/AAAA): \t (ENTER vacío para finalizar)");
 			string datos = Console.ReadLine();
 			
 			if (datos == ""){salir = true;}
@@ -86,6 +86,7 @@ namespace Ej3_Ej_4_Ej5_Ej6
 				int dni = int.Parse(datosDiv[1]);
 				string edad = datosDiv[2];
 				
+				// Chequeo si uno de los datos ingresados es una edad o una fecha de nacimiento
 				int edadInt;
 				bool esNum = int.TryParse(edad, out edadInt);
 				if ( esNum )
@@ -138,10 +139,14 @@ namespace Ej3_Ej_4_Ej5_Ej6
 	
 	class Persona
 	{
+		// Atributos o propiedades
+		private string nombre;
+		private int edad;
+		private int DNI;
+		private DateTime fechaNacimiento;
+		
 		// Constructor por defecto
-		public Persona() {
-			
-		}
+		public Persona() { }
 		
 		// Constructor con edad int
 		public Persona(string nombre, int edad, int DNI){
@@ -155,13 +160,8 @@ namespace Ej3_Ej_4_Ej5_Ej6
 			this.nombre = nombre;
 			this.DNI = DNI;
 			edad = calcularEdad(fechaNac);
+			fechaNacimiento = fechaNac;
 		}
-		
-		// Propiedades o estados
-		private string nombre;
-		private int edad;
-		private int DNI;
-		// private DateTime fechaNacimiento;
 		
 		// Metodo para imprimir los datos de una persona
 		public void imprimir(){
