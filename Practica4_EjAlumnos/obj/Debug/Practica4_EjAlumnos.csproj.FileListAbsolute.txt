@@ -1,0 +1,6 @@
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4_EjAlumnos\obj\Debug\Practica4_EjAlumnos.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4_EjAlumnos\bin\Debug\Practica4_EjAlumnos.exe.config
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4_EjAlumnos\bin\Debug\Practica4_EjAlumnos.exe
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4_EjAlumnos\bin\Debug\Practica4_EjAlumnos.pdb
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4_EjAlumnos\obj\Debug\Practica4_EjAlumnos.exe
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica4_EjAlumnos\obj\Debug\Practica4_EjAlumnos.pdb
