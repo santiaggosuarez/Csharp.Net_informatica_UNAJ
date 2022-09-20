@@ -1,6 +1,0 @@
-C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica5\Ej_1_2_3_4_5\bin\Debug\Ej_1_2_3_4_5.exe.config
-C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica5\Ej_1_2_3_4_5\bin\Debug\Ej_1_2_3_4_5.exe
-C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica5\Ej_1_2_3_4_5\bin\Debug\Ej_1_2_3_4_5.pdb
-C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica5\Ej_1_2_3_4_5\obj\Debug\Ej_1_2_3_4_5.csprojResolveAssemblyReference.cache
-C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica5\Ej_1_2_3_4_5\obj\Debug\Ej_1_2_3_4_5.exe
-C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Practica5\Ej_1_2_3_4_5\obj\Debug\Ej_1_2_3_4_5.pdb
