@@ -1,0 +1,6 @@
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Proyecto2022\bin\Debug\Proyecto2022.exe.config
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Proyecto2022\bin\Debug\Proyecto2022.exe
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Proyecto2022\bin\Debug\Proyecto2022.pdb
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Proyecto2022\obj\Debug\Proyecto2022.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Proyecto2022\obj\Debug\Proyecto2022.exe
+C:\Users\Santiago\Downloads\0 UNAJ\2DO AÑO\Algoritmos y Programación\Proyecto2022\obj\Debug\Proyecto2022.pdb
