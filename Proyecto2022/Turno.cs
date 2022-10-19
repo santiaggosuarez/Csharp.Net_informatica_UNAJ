@@ -54,27 +54,5 @@ namespace Proyecto2022
 		{
 			return horariosTurnos;
 		}
-		
-		// Metodos
-		public void agregarTurno(Turno ht)
-		{
-			horariosTurnos.Add(ht);
-		}
-		public void eliminarTurno(Turno ht)
-		{
-			horariosTurnos.Remove(ht);
-		}
-		public int cantidadTurnos()
-		{
-			return horariosTurnos.Count;
-		}
-		public bool existeTurno(Turno ht)
-		{
-			return horariosTurnos.Contains(ht);
-		}
-		public Turno recuperarElemento(int pos)
-		{
-			return horariosTurnos[pos];
-		}
 	}
 }

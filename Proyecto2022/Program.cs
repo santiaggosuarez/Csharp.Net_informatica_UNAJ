@@ -14,11 +14,38 @@ namespace Proyecto2022
 	{
 		public static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			bool salir = false;
 			
-			// TODO: Implement Functionality Here
+			while (!salir) {
+			Console.WriteLine("============ MENÚ ==================");
+			Console.WriteLine("1 - Asignar turno");
+			Console.WriteLine("2 - Actualizar el diagnóstico de un paciente");
+			Console.WriteLine("3 - Cancelar un turno");
+			Console.WriteLine("4 - Ver turnos asignados");
+			Console.WriteLine("5 - Ver obras sociales de los pacientes");
+			Console.WriteLine("6 - Agregar paciente");
+			Console.WriteLine("7 - Eliminar paciente");
+			Console.WriteLine("8 - Ver pacientes");
+			Console.WriteLine("0 - Salir ");
+			Console.WriteLine("========================================================");
 			
-			Console.Write("Press any key to continue . . . ");
+			string op = Console.ReadLine();
+			
+			switch(op){
+				case "1": ; break;
+				case "2": ;break;
+				case "3": ;break;
+				case "4": ;break;
+				case "5":  ;break;
+				case "6": ;break;
+				case "7": ;break;
+				case "8": ;break;
+				
+				case "0": Console.WriteLine("Hasta luego!"); salir = true; break;
+				}
+			}
+			
+			Console.Write("\nPress any key to continue . . . ");
 			Console.ReadKey(true);
 		}
 	}
