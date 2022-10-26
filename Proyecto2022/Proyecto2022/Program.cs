@@ -168,7 +168,7 @@ namespace Proyecto2022
 			string obraSocial;
 			int nroAfiliado;
 			
-			Console.WriteLine("Nombre del paciente: ");
+			Console.WriteLine("Nombre y apellido del paciente: ");
 			nombre = Console.ReadLine();
 			Console.WriteLine("DNI: ");
 			dni = int.Parse(Console.ReadLine());
@@ -180,6 +180,8 @@ namespace Proyecto2022
 			Paciente paciente1 = new Paciente(nombre, dni, obraSocial, nroAfiliado);
 			
 			medico1.agregarPaciente(paciente1);
+			
+			Console.WriteLine("{0} agregado/a a la lista de pacientes con éxito.", nombre);
 			
 		}
 		
