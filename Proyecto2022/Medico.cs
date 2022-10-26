@@ -23,6 +23,8 @@ namespace Proyecto2022
 		// Constructor por defecto
 		public Medico()
 		{
+			pacientes  = new ArrayList();
+			turnos  = new ArrayList();
 		}
 		
 		// Propiedades getters y setters
@@ -52,9 +54,9 @@ namespace Proyecto2022
 		{
 			return pacientes.Contains(pn);
 		}
-		public Paciente recuperarElemento(int pos)
+		public Paciente verPaciente(int pos)
 		{
-			return pacientes[pos];
+			return (Paciente) pacientes[pos];
 		}
 		
 		
@@ -74,9 +76,9 @@ namespace Proyecto2022
 		{
 			return turnos.Contains(tn);
 		}
-		public Turno recuperarElementoEn(int pos)
+		public Turno verTurno(int pos)
 		{
-			return turnos[pos];
+			return (Turno) turnos[pos];
 		}
 	}
 }

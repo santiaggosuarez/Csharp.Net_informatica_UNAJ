@@ -42,6 +42,10 @@ namespace Proyecto2022
 		{
 			return nombre;
 		}
+		public void SetNombre(string nombreNuevo)
+		{
+			this.nombre = nombreNuevo;
+		}
 		public int GetDni()
 		{
 			return dni;
@@ -50,6 +54,10 @@ namespace Proyecto2022
 		{
 			return obraSocial;
 		}
+		public void SetObraSocial(string obraSocialNueva)
+		{
+			this.obraSocial = obraSocialNueva;
+		}
 		public int GetNroAfiliado()
 		{
 			return nroAfiliado;
@@ -57,6 +65,10 @@ namespace Proyecto2022
 		public string GetDiagnostico()
 		{
 			return diagnostico;
+		}
+		public void SetDiagnostico(string diagnosticoNuevo)
+		{
+			this.diagnostico = diagnosticoNuevo;
 		}
 		
 		// Metodos
