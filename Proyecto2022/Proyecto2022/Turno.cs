@@ -26,19 +26,12 @@ namespace Proyecto2022
 		{
 		}
 		
-		// Constructor sin paciente
-		public Turno(string hora)
-		{
-			this.hora = hora;
-			this. asignado = false;
-		}
-		
-		// Constructor con paciente
-		public Turno(string nombrePaciente, string hora)
+		// Constructor con parámetros
+		public Turno(string nombrePaciente, string hora, bool asignado)
 		{
 			this.nombrePaciente = nombrePaciente;
 			this.hora = hora;
-			this. asignado = true;
+			this.asignado = asignado;
 		}
 		
 		// Propiedades getters y setters
