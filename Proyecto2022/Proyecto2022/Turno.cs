@@ -19,18 +19,26 @@ namespace Proyecto2022
 		// Atributos o estados
 		private string  nombrePaciente;
 		private string hora;
-		private ArrayList horariosTurnos;
+		private bool asignado;
 		
 		// Constructor por defecto
 		public Turno()
 		{
 		}
 		
-		// Constructor con parámetros
+		// Constructor sin paciente
+		public Turno(string hora)
+		{
+			this.hora = hora;
+			this. asignado = false;
+		}
+		
+		// Constructor con paciente
 		public Turno(string nombrePaciente, string hora)
 		{
 			this.nombrePaciente = nombrePaciente;
 			this.hora = hora;
+			this. asignado = true;
 		}
 		
 		// Propiedades getters y setters
@@ -42,6 +50,10 @@ namespace Proyecto2022
 		{
 			return hora;
 		}
+		public bool GetAsignado()
+		{
+			return asignado;
+		}
 		public void SetNombrePaciente(string nombreNuevo)
 		{
 			nombrePaciente = nombreNuevo;
@@ -50,9 +62,10 @@ namespace Proyecto2022
 		{
 			hora = horaNueva;
 		}
-		public ArrayList GetHorariosTurnos()
+		public void SetAsignado(bool asignadoNuevo)
 		{
-			return horariosTurnos;
+			asignado = asignadoNuevo;
 		}
+	
 	}
 }
