@@ -38,6 +38,8 @@ namespace Proyecto2022
 		}
 		
 		// Metodos
+		
+		// PACIENTES
 		public void agregarPaciente(Paciente pn)
 		{
 			pacientes.Add(pn);
@@ -50,7 +52,7 @@ namespace Proyecto2022
 		{
 			return pacientes.Count;
 		}
-		public bool existePaciente(Turno pn)
+		public bool existePaciente(Paciente pn)
 		{
 			return pacientes.Contains(pn);
 		}
@@ -59,7 +61,7 @@ namespace Proyecto2022
 			return (Paciente) pacientes[pos];
 		}
 		
-		
+		// TURNOS
 		public void agregarTurno(Turno turnoNuevo)
 		{
 			turnos.Add(turnoNuevo);
