@@ -15,7 +15,7 @@ namespace Proyecto2022
 	{
 		public static void Main(string[] args)
 		{
-			// Creo el consulorio médico y le asigno los turnos en los horarios disponibles (de 8 a 12 hs.).
+			// Creo el consulorio médico y le agrego los turnos en los horarios disponibles (de 8 a 12 hs.).
 			// Cada turno tiene un string vacio como nombre, ya que aún no se le asignó a ningún paciente.
 			// Cada turno tiene un horario.
 			// Cada turno se inicializa sin estar asignado (false).
