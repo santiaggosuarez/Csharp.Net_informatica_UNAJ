@@ -52,7 +52,7 @@ namespace Proyecto2022
 		{
 			return pacientes.Count;
 		}
-		public bool existePaciente(Turno pn)
+		public bool existePaciente(Paciente pn)
 		{
 			return pacientes.Contains(pn);
 		}

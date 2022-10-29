@@ -15,6 +15,10 @@ namespace Proyecto2022
 	{
 		public static void Main(string[] args)
 		{
+			// Creo el consulorio médico y le asigno los turnos en los horarios disponibles (de 8 a 12 hs.).
+			// Cada turno tiene un string vacio como nombre, ya que aún no se le asignó a ningún paciente.
+			// Cada turno tiene un horario.
+			// Cada turno se inicializa sin estar asignado (false).
 			Medico consultorioMedico = new Medico();
 			Turno turno1 = new Turno("","08:00",false);
 			consultorioMedico.agregarTurno(turno1);
@@ -35,6 +39,7 @@ namespace Proyecto2022
 			Turno turno9 = new Turno("","12:00",false);
 			consultorioMedico.agregarTurno(turno9);
 			
+			// Variable booleana para controlar la salida del menú principal
 			bool salir = false;
 			
 			while (!salir) {
@@ -55,11 +60,11 @@ namespace Proyecto2022
 				case "1": darTurno(consultorioMedico); break;
 				case "2": actualizarDiagnostico(consultorioMedico);break;
 				case "3": eliminarTurno(consultorioMedico);break;
-				case "4": verTurnos(consultorioMedico);break;
+				case "4": listarTurnos(consultorioMedico);break;
 				case "5": verObras(consultorioMedico);break;
 				case "6": agregarPaciente(consultorioMedico);break;
 				case "7": eliminarPaciente(consultorioMedico);break;
-				case "8": verPacientes(consultorioMedico);break;
+				case "8": listarPacientes(consultorioMedico);break;
 				
 				case "0": Console.WriteLine("Hasta luego!"); salir = true; break;
 				}
@@ -72,12 +77,10 @@ namespace Proyecto2022
 		// Funcion para dar turno
 		public static void darTurno(Medico medico1)
 		{
+			// Variable booleana para controlar si hay turnos disponibles
 			bool hayDisponibles = false;
 			
-			ArrayList conjuntoTurnos;
-			conjuntoTurnos = medico1.GetTurnos(); // Tomo la lista de turnos de medico
-			
-			foreach(Turno turno in conjuntoTurnos)
+			foreach(Turno turno in medico1.GetTurnos()) // Tomo los turnos de medico
 			{
 				// Recorro los turnos y si alguno NO está asignado, entonces hayDisponibles es TRUE
 				if (!turno.GetAsignado())
@@ -275,6 +278,8 @@ namespace Proyecto2022
 			}
 			// De no haber turnos disponibles se envía el siguiente mensaje
 			else { Console.WriteLine("Horarios no disponibles, llamar próximo día de atención."); }
+			
+			// Otra forma para hacerlo, pero sin tener control de los horarios
 			// Turno turno1 = new Turno(nombre, hora); // Creo el turno
 			// medico1.agregarTurno(turno1); // Agrego el turno
 		}
@@ -282,23 +287,28 @@ namespace Proyecto2022
 		// Funcion para actualizar diagnostico de paciente
 		public static void actualizarDiagnostico(Medico medico1)
 		{
-			// Declaro y asigno variables DNI y DIAGNOSTICO
-			Console.WriteLine("Ingrese el DNI del paciente: ");
+			// Variable booleana para saber si el paciente ingresado existe
+			bool existe = false;
+			
+			// Declaro e inicializo variables DNI y DIAGNOSTICO
+			Console.Write("Ingrese el DNI del paciente: ");
 			int dni = int.Parse(Console.ReadLine());
-			Console.WriteLine("Ingrese el nuevo diagnostico: ");
+			Console.Write("Ingrese el nuevo diagnostico: ");
 			string diagnostico = Console.ReadLine();
 			
-			ArrayList conjuntoPacientes;
-			conjuntoPacientes = medico1.GetPacientes(); // Tomo la lista de pacientes de medico
-			
-			foreach (Paciente p in conjuntoPacientes)
+			// Recorro la lista de pacientes de medico en busca del paciente con el DNI ingresado para actualizar su diagnostico
+			foreach (Paciente p in medico1.GetPacientes())
 			{
 				if (p.GetDni() == dni)
 				{
 					p.SetDiagnostico(diagnostico);
 					Console.WriteLine("\nEl diagnostico de {0} (DNI {1}) se modificó con éxito.", p.GetNombre(), dni);
+					existe = true;
 				}
 			}
+			
+			// Si el paciente NO existe se avisa por consola
+			if (!existe) {Console.WriteLine("No existe un paciente registrado con el DNI ingresado.");}
 		}
 		
 		// Funcion para cancelar turno
@@ -327,128 +337,144 @@ namespace Proyecto2022
 				case "7": medico1.verTurno(6).SetNombrePaciente(""); medico1.verTurno(6).SetAsignado(false);break;
 				case "8": medico1.verTurno(7).SetNombrePaciente(""); medico1.verTurno(7).SetAsignado(false);break;
 				}
+			Console.WriteLine("Turno cancelado.");
 			
 		}
 		
 		// Funcion para listar los turnos dados
-		public static void verTurnos(Medico medico1)
+		public static void listarTurnos(Medico medico1)
 		{
-			ArrayList conjuntoTurnos;
-			conjuntoTurnos = medico1.GetTurnos(); // Tomo la lista de turnos de medico
+			// Variable booleana para controlar si hay turnos
+			bool noHayTurnos = true;
 			
-			foreach (Turno turno in conjuntoTurnos)
+			// Recorro la lista de turnos de medico y si un turno está asignado lo imprimo
+			foreach (Turno turno in medico1.GetTurnos())
 			{
 				if (turno.GetAsignado())
 				{
 					string nombre = turno.GetNombrePaciente();
 					string hora = turno.GetHora();
-					Console.WriteLine("Paciente: {0}\nTurno: {1} hs.\n", nombre, hora);
+					Console.WriteLine("Turno: {0} hs. ({1})", hora, nombre);
+					noHayTurnos = false;
 				}
 			}
+			
+			// Si no hay turnos lo aviso por consola
+			if (noHayTurnos) {Console.WriteLine("No hay turnos asignados actualmente.");}	
 		}
 		
 		// Funcion para listar las obras sociales que atiende el medico (sin repeticiones)
 		public static void verObras(Medico medico1)
 		{
+			// Creo una lista donde voy a guardar las obras sociales
 			ArrayList obrasSociales = new ArrayList();
 			
-			ArrayList conjuntoPacientes;
-			conjuntoPacientes = medico1.GetPacientes(); // Tomo la lista de pacientes de medico
+			// Si no hay pacientes entonces no hay obras sociales y lo aviso por consola
+			if (medico1.cantidadPacientes() == 0) {Console.WriteLine("No hay obras sociales disponibles.");}
 			
-			foreach (Paciente p in conjuntoPacientes)
+			// Si hay pacientes entonces imprimo sus obras sociales
+			else
 			{
-				string obraSocial = p.GetObraSocial();
-				bool existe = false;
-				
-				foreach (string o in obrasSociales)
+				// Recorro la lista de pacientes de medico y obtengo la obra social de cada paciene
+				foreach (Paciente p in medico1.GetPacientes())
 				{
-					if (obraSocial == o)
+					string obraSocial = p.GetObraSocial();
+					bool existe = false;
+					
+					// Recorro la lista de obras sociales para saber si la obra social del paciente ya está incluida
+					foreach (string o in obrasSociales)
 					{
-						existe = true;
-						break;
+						if (obraSocial == o)
+						{
+							existe = true;
+							break;
+						}
+					}
+					
+					// Si la obra social del paciente NO está incluida entonces se agrega a la lista de obras sociales
+					if  (!existe)
+					{
+						obrasSociales.Add(obraSocial);
 					}
 				}
 				
-				if  (!existe)
+				// Recorro e imprimo las obras sociales en orden alfabetico
+				obrasSociales.Sort();
+				Console.WriteLine("Las obras sociales que atiende el médico son las siguientes: \n");
+				foreach (string os in obrasSociales)
 				{
-					obrasSociales.Add(obraSocial);
+					Console.WriteLine(os);
 				}
-			}
-			
-			// Recorro e imprimo las obras sociales en orden alfabetico
-			obrasSociales.Sort();
-			Console.WriteLine("Las obras sociales que atiende el médico son las siguientes: \n");
-			foreach (string os in obrasSociales)
-			{
-				Console.WriteLine(os);
 			}
 		}
 		
 		// Funcion para agregar paciente
 		public static void agregarPaciente(Medico medico1)
 		{
-			string nombre;
-			int dni;
-			string obraSocial;
-			int nroAfiliado;
-			
+			// Declaro e inicializo las variables (datos del paciente) NOMBRE, DNI, OBRA SOCIAL y NRO DE AFILIADO
 			Console.Write("Nombre y apellido del paciente: ");
-			nombre = Console.ReadLine().ToUpper();
+			string nombre = Console.ReadLine().ToUpper();
 			Console.Write("DNI: ");
-			dni = int.Parse(Console.ReadLine());
+			int dni = int.Parse(Console.ReadLine());
 			Console.Write("Obra social (“particular” si no posee): ");
-			obraSocial = Console.ReadLine().ToUpper();
+			string obraSocial = Console.ReadLine().ToUpper();
 			Console.Write("Nro de afiliado (0 si no posee obra social): ");
-			nroAfiliado = int.Parse(Console.ReadLine());
+			int nroAfiliado = int.Parse(Console.ReadLine());
 			
+			// Creo el paciente con los datos dados
 			Paciente paciente1 = new Paciente(nombre, dni, obraSocial, nroAfiliado);
 			
+			// Agrego el paciente a la lista del médico y lo anuncio por consola
 			medico1.agregarPaciente(paciente1);
-			
-			Console.WriteLine("{0} agregado/a a la lista de pacientes con éxito.", nombre);
+			Console.WriteLine("{0} ha sido agregado/a a la lista de pacientes con éxito.", nombre);
 			
 		}
 		
 		// Funcion para eliminar paciente
 		public static void eliminarPaciente(Medico medico1)
 		{
-			int dni;
+			// Declaro e inicializo las variables DNI (para buscar al paciente a eliminar) y EXISTE (para saber si dicho paciente existe)
 			bool existe = false;
 			Console.Write("Ingrese el DNI del paciente a borrar: ");
-			dni = int.Parse(Console.ReadLine());
+			int dni = int.Parse(Console.ReadLine());
 			
-			ArrayList conjuntoPacientes;
-			conjuntoPacientes = medico1.GetPacientes(); // Tomo la lista de pacientes de medico
-			
-			foreach (Paciente i in conjuntoPacientes)
+			// Recorro la lista de pacientes de medico en busca del paciente con el DNI ingresado
+			foreach (Paciente i in medico1.GetPacientes())
 			{
 				if (dni == i.GetDni())
 				{
 					medico1.eliminarPaciente(i);
 					Console.WriteLine("\n{0} (DNI {1}) ha sido eliminado/a con éxito.", i.GetNombre(), i.GetDni());
 					existe = true;
-					break; // Break porque no tiene sentido seguir buscando, ya que no se repiten pacientes
 				}
 			}
 			
+			// Sino existe se avisa por teclado
 			if (!existe) { Console.WriteLine("\nNo existe un/a paciente con el DNI indicado."); }
 		}
 		
 		// Funcion para listar pacientes
-		public static void verPacientes(Medico medico1)
+		public static void listarPacientes(Medico medico1)
 		{
 			ArrayList conjuntoPacientes;
 			conjuntoPacientes = medico1.GetPacientes(); // Tomo la lista de pacientes de medico
 			
-			foreach (Paciente p in conjuntoPacientes)
+			// Chequeo si hay pacientes cargados
+			if (medico1.cantidadPacientes() == 0) {Console.WriteLine("No hay pacientes cargados actualmente.");}
+			
+			// Recorro la lista para obtener los datos de cada paciente e imprimirlos
+			else
 			{
-				string nombre = p.GetNombre();
-				int dni = p.GetDni();
-				string obraSocial = p.GetObraSocial();
-				int nroAfiliado = p.GetNroAfiliado();
-				string diagnostico = p.GetDiagnostico();
-				
-				Console.WriteLine("Paciente: {0}\nDNI: {1}\nObra social: {2}\nNro de afiliado: {3}\nDiagnostico: {4}\n", nombre, dni, obraSocial, nroAfiliado, diagnostico);
+				foreach (Paciente p in conjuntoPacientes)
+				{
+					string nombre = p.GetNombre();
+					int dni = p.GetDni();
+					string obraSocial = p.GetObraSocial();
+					int nroAfiliado = p.GetNroAfiliado();
+					string diagnostico = p.GetDiagnostico();
+					
+					Console.WriteLine("Paciente: {0}\nDNI: {1}\nObra social: {2}\nNro de afiliado: {3}\nDiagnostico: {4}\n", nombre, dni, obraSocial, nroAfiliado, diagnostico);
+				}	
 			}
 		}
 	}
