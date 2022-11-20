@@ -39,6 +39,16 @@ namespace Proyecto2022
 			Turno turno9 = new Turno("","12:00",false);
 			consultorioMedico.agregarTurno(turno9);
 			
+			// Agrego pacientes para hacer pruebas
+			Paciente paciente1 = new Paciente("Santiago Suárez",40856658,"Particular",0);
+			consultorioMedico.agregarPaciente(paciente1);
+			Paciente paciente2 = new Paciente("Belén Salinas",40766666,"OSDE",1244);
+			consultorioMedico.agregarPaciente(paciente2);
+			Paciente paciente3 = new Paciente("Jorge Pérez",25112233,"GALENO",1010);
+			consultorioMedico.agregarPaciente(paciente3);
+			Paciente paciente4 = new Paciente("Micaela Herrera",30112233,"GALENO",9876);
+			consultorioMedico.agregarPaciente(paciente4);
+			
 			// Variable booleana para controlar la salida del menú principal
 			bool salir = false;
 			
@@ -74,216 +84,105 @@ namespace Proyecto2022
 			Console.ReadKey(true);
 		}
 		
+		// Funcion para imprimir lista de pacientes
+		public static void imprimirPacientes(Medico medico1)
+		{
+			ArrayList conjuntoPacientes;
+			conjuntoPacientes = medico1.GetPacientes(); // Tomo la lista de pacientes de medico
+			
+			for(int i = 0; i < conjuntoPacientes.Count; i++)
+			{
+				Paciente p = medico1.verPaciente(i);
+				Console.WriteLine("{2}) {0} - {1}", p.GetNombre(), p.GetDni(), i+1);
+			}
+		}
+		
 		// Funcion para dar turno
 		public static void darTurno(Medico medico1)
 		{
-			// Variable booleana para controlar si hay turnos disponibles
-			bool hayDisponibles = false;
+			// Variable booleana para controlar si se quiere asignar turno
+			bool salir = false;
 			
-			foreach(Turno turno in medico1.GetTurnos()) // Tomo los turnos de medico
+			while (!salir)
 			{
-				// Recorro los turnos y si alguno NO está asignado, entonces hayDisponibles es TRUE
-				if (!turno.GetAsignado())
-				{
-					hayDisponibles = true;
-				}
-			}
-			
-			// Si hay turnos disponibles brindo la opción de elegir alguno
-			if (hayDisponibles)
-			{			
-				Console.Write("Ingrese el nombre y apellido del paciente: ");
-				string nombre = Console.ReadLine().ToUpper();
+				// Variable booleana para controlar si hay turnos disponibles
+				bool hayDisponibles = false;
 				
-				// Variable para controlar que el usuario pueda volver a elegir turno en caso de seleccionar uno no disponible
-				bool turnoAsignado = false;
-				while (!turnoAsignado)
+				foreach(Turno turno in medico1.GetTurnos()) // Tomo los turnos de medico
 				{
+					// Recorro los turnos y si alguno NO está asignado, entonces hayDisponibles es TRUE
+					if (!turno.GetAsignado())
+					{
+						hayDisponibles = true;
+					}
+				}
+				
+				// Si hay turnos disponibles brindo la opción de elegir alguno
+				if (hayDisponibles)
+				{
+					// Elijo el paciente de la lista de pacientes
+					Console.WriteLine("Seleccione el paciente a asignar: ");
+					imprimirPacientes(medico1);
+					Console.WriteLine();
+					int opcionPaciente = int.Parse(Console.ReadLine());
+					
+					Paciente pacienteAsignar = medico1.verPaciente(opcionPaciente - 1);
+					
+					// Tomo la lista de turnos de medico
+					ArrayList conjuntoTurnos = new ArrayList();
+					conjuntoTurnos = medico1.GetTurnos();
+					
 					Console.WriteLine("\nSeleccione una opción: ");
-					Console.WriteLine("1) 08:00 hs.");
-					Console.WriteLine("2) 08:30 hs.");
-					Console.WriteLine("3) 09:00 hs.");
-					Console.WriteLine("4) 09:30 hs.");
-					Console.WriteLine("5) 10:00 hs.");
-					Console.WriteLine("6) 10:30 hs.");
-					Console.WriteLine("7) 11:00 hs.");
-					Console.WriteLine("8) 11:30 hs.");
-					Console.WriteLine("9) 12:00 hs.");
-					Console.WriteLine("0) Atrás.");
 					
-					string opcion = Console.ReadLine();
+					// Lista para guardar los turnos disponibles
+					ArrayList turnosDisponibles = new ArrayList();
 					
-					switch(opcion){
-						case "1": 
-							// Si el turno en la posición elegida NO está ocupado, se lo da al paciente y pasa a figurar como asignado
-							if (!medico1.verTurno(0).GetAsignado())
-							{
-								medico1.verTurno(0).SetNombrePaciente(nombre);
-								medico1.verTurno(0).SetAsignado(true);
-								// Cierro el bucle
-								turnoAsignado = true;
-								
-								Console.WriteLine("\nSe le asignó a {0} el turno de las {1} hs.", nombre, medico1.verTurno(0).GetHora());
-							}
-							// Sino, avisa por consola que está ocupado
-							else
-							{
-								Console.WriteLine("\nTurno ocupado, por favor seleccione otro.");
-							};
-							break;
-						case "2":
-							// Si el turno en la posición elegida NO está ocupado, se lo da al paciente y pasa a figurar como asignado
-							if (!medico1.verTurno(1).GetAsignado())
-							{
-								medico1.verTurno(1).SetNombrePaciente(nombre);
-								medico1.verTurno(1).SetAsignado(true);
-								// Cierro el bucle
-								turnoAsignado = true;
-								
-								Console.WriteLine("\nSe le asignó a {0} el turno de las {1} hs.", nombre, medico1.verTurno(1).GetHora());
-							}
-							// Sino, avisa por consola que está ocupado
-							else
-							{
-								Console.WriteLine("\nTurno ocupado, por favor seleccione otro.");
-								// Cierro el bucle
-								turnoAsignado = true;
-							};
-							break;
-						case "3":
-							// Si el turno en la posición elegida NO está ocupado, se lo da al paciente y pasa a figurar como asignado
-							if (!medico1.verTurno(2).GetAsignado())
-							{
-								medico1.verTurno(2).SetNombrePaciente(nombre);
-								medico1.verTurno(2).SetAsignado(true);
-								// Cierro el bucle
-								turnoAsignado = true;
-								
-								Console.WriteLine("\nSe le asignó a {0} el turno de las {1} hs.", nombre, medico1.verTurno(2).GetHora());
-							}
-							// Sino, avisa por consola que está ocupado
-							else
-							{
-								Console.WriteLine("\nTurno ocupado, por favor seleccione otro.");
-							};
-							break;
-						case "4":
-							// Si el turno en la posición elegida NO está ocupado, se lo da al paciente y pasa a figurar como asignado
-							if (!medico1.verTurno(3).GetAsignado())
-							{
-								medico1.verTurno(3).SetNombrePaciente(nombre);
-								medico1.verTurno(3).SetAsignado(true);
-								// Cierro el bucle
-								turnoAsignado = true;
-								
-								Console.WriteLine("\nSe le asignó a {0} el turno de las {1} hs.", nombre, medico1.verTurno(3).GetHora());
-							}
-							// Sino, avisa por consola que está ocupado
-							else
-							{
-								Console.WriteLine("\nTurno ocupado, por favor seleccione otro.");
-							};
-							break;
-						case "5":
-							// Si el turno en la posición elegida NO está ocupado, se lo da al paciente y pasa a figurar como asignado
-							if (!medico1.verTurno(4).GetAsignado())
-							{
-								medico1.verTurno(4).SetNombrePaciente(nombre);
-								medico1.verTurno(4).SetAsignado(true);
-								// Cierro el bucle
-								turnoAsignado = true;
-								
-								Console.WriteLine("\nSe le asignó a {0} el turno de las {1} hs.", nombre, medico1.verTurno(4).GetHora());
-							}
-							// Sino, avisa por consola que está ocupado
-							else
-							{
-								Console.WriteLine("\nTurno ocupado, por favor seleccione otro.");
-							};
-							break;
-						case "6":
-							// Si el turno en la posición elegida NO está ocupado, se lo da al paciente y pasa a figurar como asignado
-							if (!medico1.verTurno(5).GetAsignado())
-							{
-								medico1.verTurno(5).SetNombrePaciente(nombre);
-								medico1.verTurno(5).SetAsignado(true);
-								// Cierro el bucle
-								turnoAsignado = true;
-								
-								Console.WriteLine("\nSe le asignó a {0} el turno de las {1} hs.", nombre, medico1.verTurno(5).GetHora());
-							}
-							// Sino, avisa por consola que está ocupado
-							else
-							{
-								Console.WriteLine("\nTurno ocupado, por favor seleccione otro.");
-							};
-							break;
-						case "7":
-							// Si el turno en la posición elegida NO está ocupado, se lo da al paciente y pasa a figurar como asignado
-							if (!medico1.verTurno(6).GetAsignado())
-							{
-								medico1.verTurno(6).SetNombrePaciente(nombre);
-								medico1.verTurno(6).SetAsignado(true);
-								// Cierro el bucle
-								turnoAsignado = true;
-								
-								Console.WriteLine("\nSe le asignó a {0} el turno de las {1} hs.", nombre, medico1.verTurno(6).GetHora());
-							}
-							// Sino, avisa por consola que está ocupado
-							else
-							{
-								Console.WriteLine("\nTurno ocupado, por favor seleccione otro.");
-							};
-							break;
-						case "8":
-							// Si el turno en la posición elegida NO está ocupado, se lo da al paciente y pasa a figurar como asignado
-							if (!medico1.verTurno(7).GetAsignado())
-							{
-								medico1.verTurno(7).SetNombrePaciente(nombre);
-								medico1.verTurno(7).SetAsignado(true);
-								// Cierro el bucle
-								turnoAsignado = true;
-								
-								Console.WriteLine("\nSe le asignó a {0} el turno de las {1} hs.", nombre, medico1.verTurno(7).GetHora());
-							}
-							// Sino, avisa por consola que está ocupado
-							else
-							{
-								Console.WriteLine("\nTurno ocupado, por favor seleccione otro.");
-							};
-							break;
-						case "9":
-							// Si el turno en la posición elegida NO está ocupado, se lo da al paciente y pasa a figurar como asignado
-							if (!medico1.verTurno(8).GetAsignado())
-							{
-								medico1.verTurno(8).SetNombrePaciente(nombre);
-								medico1.verTurno(8).SetAsignado(true);
-								// Cierro el bucle
-								turnoAsignado = true;
-								
-								Console.WriteLine("\nSe le asignó a {0} el turno de las {1} hs.", nombre, medico1.verTurno(8).GetHora());
-							}
-							// Sino, avisa por consola que está ocupado
-							else
-							{
-								Console.WriteLine("\nTurno ocupado, por favor seleccione otro.");
-							};
-							break;
-						case "0":
-							// Cierro el bucle
-							turnoAsignado = true;
-							break;
+					// Int para numerar los turnos al imprimirlos
+					int numeroTurno = 1;
+					
+					for(int i = 0; i < conjuntoTurnos.Count; i++)
+					{
+						// Si el turno no esta asignado lo muestro para que el usuario pueda elegirlo
+						if ( ! medico1.verTurno(i).GetAsignado())
+						{
+							Turno turnoAsignar = medico1.verTurno(i);
+							string horaTurno = turnoAsignar.GetHora();
+							
+							Console.WriteLine("{0}) {1}", numeroTurno, horaTurno);
+							numeroTurno += 1;
+							
+							turnosDisponibles.Add(turnoAsignar);
 						}
 					}
+					Console.WriteLine("0) Atrás.");
+					int opcion = int.Parse(Console.ReadLine());
+					
+					if (opcion == 0) {salir = true;}
+					else
+					{
+						foreach(Turno t in conjuntoTurnos)
+						{
+							// Obtengo la hora elegida de la lista turnoDisponibles y la hora del conjuntoTurnos de medico para compararlas y que sean iguales
+							Turno turnoElegido = (Turno) turnosDisponibles[opcion - 1];
+							string horaElegida = turnoElegido.GetHora();
+							string horaTurnoMedico = t.GetHora();
+							
+							if (horaElegida == horaTurnoMedico)
+							{
+								string nombre = pacienteAsignar.GetNombre();
+								t.SetNombrePaciente(nombre);
+								t.SetAsignado(true);
+								Console.WriteLine("\nSe le asignó a {0} el turno de las {1} hs.", nombre.ToUpper(), t.GetHora());
+								salir = true;
+							}
+						}
+					}
+				}
+				// De no haber turnos disponibles se envía el siguiente mensaje
+				else { Console.WriteLine("Horarios no disponibles, llamar próximo día de atención."); salir = true; }
 			}
-			// De no haber turnos disponibles se envía el siguiente mensaje
-			else { Console.WriteLine("Horarios no disponibles, llamar próximo día de atención."); }
-			
-			// Otra forma para hacerlo, pero sin tener control de los horarios
-			// Turno turno1 = new Turno(nombre, hora); // Creo el turno
-			// medico1.agregarTurno(turno1); // Agrego el turno
 		}
-		
+			
 		// Funcion para actualizar diagnostico de paciente
 		public static void actualizarDiagnostico(Medico medico1)
 		{
@@ -308,7 +207,7 @@ namespace Proyecto2022
 			}
 			
 			// Si el paciente NO existe se avisa por consola
-			if (!existe) {Console.WriteLine("No existe un paciente registrado con el DNI ingresado.");}
+			if (!existe) {Console.WriteLine("No existe un paciente registrado con el DNI ingresado.");}	
 		}
 		
 		// Funcion para cancelar turno
@@ -433,9 +332,12 @@ namespace Proyecto2022
 		// Funcion para eliminar paciente
 		public static void eliminarPaciente(Medico medico1)
 		{
+			// Muestro los pacientes que hay
+			imprimirPacientes(medico1);
+			
 			// Declaro e inicializo las variables DNI (para buscar al paciente a eliminar) y EXISTE (para saber si dicho paciente existe)
 			bool existe = false;
-			Console.Write("Ingrese el DNI del paciente a borrar: ");
+			Console.Write("\nIngrese el DNI del paciente a borrar: ");
 			int dni = int.Parse(Console.ReadLine());
 			
 			// Recorro la lista de pacientes de medico en busca del paciente con el DNI ingresado
@@ -444,12 +346,12 @@ namespace Proyecto2022
 				if (dni == i.GetDni())
 				{
 					medico1.eliminarPaciente(i);
-					Console.WriteLine("\n{0} (DNI {1}) ha sido eliminado/a con éxito.", i.GetNombre(), i.GetDni());
+					Console.WriteLine("\n{0} ha sido eliminado/a con éxito.", i.GetNombre());
 					existe = true;
 				}
 			}
 			
-			// Sino existe se avisa por teclado
+			// Si no existe se avisa por teclado
 			if (!existe) { Console.WriteLine("\nNo existe un/a paciente con el DNI indicado."); }
 		}
 		
