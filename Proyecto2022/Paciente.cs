@@ -34,7 +34,7 @@ namespace Proyecto2022
 			this.dni = dni;
 			this.obraSocial = obraSocial;
 			this.nroAfiliado = nroAfiliado;
-			this. diagnostico = "";
+			this. diagnostico = "Sin diagnóstico";
 		}
 		
 		// Propiedades getters y setters
