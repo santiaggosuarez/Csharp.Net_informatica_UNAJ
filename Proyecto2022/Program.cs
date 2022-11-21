@@ -123,9 +123,22 @@ namespace Proyecto2022
 					// Elijo el paciente de la lista de pacientes
 					Console.WriteLine("Seleccione el paciente a asignar: ");
 					imprimirPacientes(medico1);
-					int opcionPaciente = int.Parse(Console.ReadLine());
+					string opcionPaciente = Console.ReadLine();
 					
-					Paciente pacienteAsignar = medico1.verPaciente(opcionPaciente - 1);
+					// Chequeo que la opcion sea numerica
+					int opcionNum;
+					bool chequeoOpcionPaciente = int.TryParse(opcionPaciente, out opcionNum);
+					
+					// El programa no continua hasta que se ingrese un valor válido
+					while (!chequeoOpcionPaciente || opcionNum > medico1.GetPacientes().Count || opcionNum < 0){
+						Console.Write("Por favor ingrese una opción válida: ");
+						opcionPaciente = Console.ReadLine();
+					
+						chequeoOpcionPaciente = int.TryParse(opcionPaciente, out opcionNum);
+					}
+					
+					// Se selecciona el paciente elegido (esta en la posicion OPCION - 1 de la lista de pacientes)
+					Paciente pacienteAsignar = medico1.verPaciente(opcionNum - 1);
 					
 					// Tomo la lista de turnos de medico
 					ArrayList conjuntoTurnos = new ArrayList();
@@ -154,15 +167,27 @@ namespace Proyecto2022
 						}
 					}
 					Console.WriteLine("0) Atrás.");
-					int opcion = int.Parse(Console.ReadLine());
 					
-					if (opcion == 0) {salir = true;}
+					// Chequeo que la opcion sea numerica
+					string opcion = Console.ReadLine();
+					int opcionInt;
+					bool chequeoOpcion = int.TryParse(opcion, out opcionInt);
+					
+					// El programa no continua hasta que se ingrese un valor válido
+					while (!chequeoOpcion || opcionInt > conjuntoTurnos.Count || opcionInt < 0){
+						Console.Write("Por favor ingrese una opción válida: ");
+						opcion = Console.ReadLine();
+					
+						chequeoOpcion = int.TryParse(opcion, out opcionInt);
+					}
+					
+					if (opcionInt == 0) {salir = true;}
 					else
 					{
 						foreach(Turno t in conjuntoTurnos)
 						{
 							// Obtengo la hora elegida de la lista turnoDisponibles y la hora del conjuntoTurnos de medico para compararlas y que sean iguales
-							Turno turnoElegido = (Turno) turnosDisponibles[opcion - 1];
+							Turno turnoElegido = (Turno) turnosDisponibles[opcionInt - 1];
 							string horaElegida = turnoElegido.GetHora();
 							string horaTurnoMedico = t.GetHora();
 							
@@ -253,15 +278,27 @@ namespace Proyecto2022
 					}
 				}
 				Console.WriteLine("0) Atrás.");
-				int opcion = int.Parse(Console.ReadLine());
+				string opcion = Console.ReadLine();
 				
-				if (opcion == 0) {bool salir = true;}
+				// Chequeo que la opcion sea numerica
+				int opcionNum;
+				bool chequeoOpcion = int.TryParse(opcion, out opcionNum);
+				
+				// El programa no continua hasta que se ingrese un valor válido
+				while (!chequeoOpcion || opcionNum > turnosAsignados.Count  || opcionNum < 0){
+					Console.Write("Por favor ingrese una opción válida: ");
+					opcion = Console.ReadLine();
+				
+					chequeoOpcion = int.TryParse(opcion, out opcionNum);
+				}
+				
+				if (opcionNum == 0) {/*bool salir = true;*/}
 				else
 				{
 					foreach(Turno t in conjuntoTurnos)
 					{
 						// Obtengo la hora elegida de la lista turnosAsignados y la hora del conjuntoTurnos de medico para compararlas y que sean iguales
-						Turno turnoElegido = (Turno) turnosAsignados[opcion - 1];
+						Turno turnoElegido = (Turno) turnosAsignados[opcionNum - 1];
 						string horaElegida = turnoElegido.GetHora();
 						string horaTurnoMedico = t.GetHora();
 						
@@ -350,15 +387,53 @@ namespace Proyecto2022
 			// Declaro e inicializo las variables (datos del paciente) NOMBRE, DNI, OBRA SOCIAL y NRO DE AFILIADO
 			Console.Write("Nombre y apellido del paciente: ");
 			string nombre = Console.ReadLine().ToUpper();
+			double num;
+			bool esNumerico = double.TryParse(nombre, out num);
+			while (esNumerico || nombre.Length < 1)
+			{
+				Console.Write("Ingrese un nombre y apellido válido: ");
+				nombre = Console.ReadLine().ToUpper();
+				esNumerico = double.TryParse(nombre, out num);
+			}
+			
 			Console.Write("DNI: ");
-			int dni = int.Parse(Console.ReadLine());
+			string dni = Console.ReadLine();
+	            	int numDNI;
+	            	bool esNumDNI = int.TryParse(dni, out numDNI);
+	            	while ( !esNumDNI || dni.Length > 8)
+			{
+				Console.Write("Ingrese un DNI válido: ");
+				dni = Console.ReadLine();
+				esNumDNI = int.TryParse(dni, out numDNI);
+			}
+			             
 			Console.Write("Obra social (“particular” si no posee): ");
 			string obraSocial = Console.ReadLine().ToUpper();
-			Console.Write("Nro de afiliado (0 si no posee obra social): ");
-			int nroAfiliado = int.Parse(Console.ReadLine());
+			double numb;
+			bool esNumericoOS = double.TryParse(obraSocial, out numb);
+			while ( esNumericoOS || obraSocial.Length < 1)
+			{
+				Console.Write("Ingrese una Obra Social válida: ");
+				obraSocial = Console.ReadLine().ToUpper();
+				esNumericoOS = double.TryParse(obraSocial, out numb);
+			}
+			
+			int nroAfiliado;
+			if (obraSocial == "PARTICULAR") { nroAfiliado = 0; }
+			else {
+			Console.Write("Nro de afiliado: ");
+			string afiliado = Console.ReadLine();
+	            	bool esNumAF = int.TryParse(afiliado, out nroAfiliado);
+	            	while ( !esNumAF || afiliado.Length < 1 || nroAfiliado < 0)
+			{
+				Console.Write("Ingrese un nro de afiliado válido: ");
+				afiliado = Console.ReadLine();
+				esNumAF = int.TryParse(afiliado, out nroAfiliado);
+			}
+			}
 			
 			// Creo el paciente con los datos dados
-			Paciente paciente1 = new Paciente(nombre, dni, obraSocial, nroAfiliado);
+			Paciente paciente1 = new Paciente(nombre, numDNI, obraSocial, nroAfiliado);
 			
 			// Agrego el paciente a la lista del médico y lo anuncio por consola
 			medico1.agregarPaciente(paciente1);
@@ -375,12 +450,12 @@ namespace Proyecto2022
 			// Declaro e inicializo las variables DNI (para buscar al paciente a eliminar) y EXISTE (para saber si dicho paciente existe)
 			bool existe = false;
 			Console.Write("\nIngrese el DNI del paciente a borrar: ");
-			int dni = int.Parse(Console.ReadLine());
+			string dni = Console.ReadLine();
 			
 			// Recorro la lista de pacientes de medico en busca del paciente con el DNI ingresado
 			foreach (Paciente i in medico1.GetPacientes())
 			{
-				if (dni == i.GetDni())
+				if (dni == i.GetDni().ToString())
 				{
 					medico1.eliminarPaciente(i);
 					Console.WriteLine("\n{0} ha sido eliminado/a con éxito.", i.GetNombre());
@@ -396,7 +471,7 @@ namespace Proyecto2022
 		// Funcion para listar pacientes
 		public static void listarPacientes(Medico medico1)
 		{
-			Console.WriteLine("Lista de pacientes:");
+			Console.WriteLine("Lista de pacientes:\n");
 			
 			 // Tomo la lista de pacientes de medico
 			ArrayList conjuntoPacientes;
