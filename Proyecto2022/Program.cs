@@ -40,13 +40,13 @@ namespace Proyecto2022
 			consultorioMedico.agregarTurno(turno9);
 			
 			// Agrego pacientes para hacer pruebas
-			Paciente paciente1 = new Paciente("Santiago Suárez",40856658,"PARTICULAR",0);
+			Paciente paciente1 = new Paciente("SANTIAGO SUÁREZ",40856658,"PARTICULAR",0);
 			consultorioMedico.agregarPaciente(paciente1);
-			Paciente paciente2 = new Paciente("Belén Salinas",40766666,"OSDE",1244);
+			Paciente paciente2 = new Paciente("BELÉN SALINAS",40766666,"OSDE",1244);
 			consultorioMedico.agregarPaciente(paciente2);
-			Paciente paciente3 = new Paciente("Jorge Pérez",1234,"GALENO",1010);
+			Paciente paciente3 = new Paciente("JORGE PÉREZ",99,"GALENO",1010);
 			consultorioMedico.agregarPaciente(paciente3);
-			Paciente paciente4 = new Paciente("Micaela Herrera",10,"GALENO",9876);
+			Paciente paciente4 = new Paciente("LIONEL MESSI",10,"GALENO",9876);
 			consultorioMedico.agregarPaciente(paciente4);
 			
 			// Variable booleana para controlar la salida del menú principal
@@ -174,7 +174,7 @@ namespace Proyecto2022
 					bool chequeoOpcion = int.TryParse(opcion, out opcionInt);
 					
 					// El programa no continua hasta que se ingrese un valor válido
-					while (!chequeoOpcion || opcionInt > conjuntoTurnos.Count || opcionInt < 0){
+					while (!chequeoOpcion || opcionInt > turnosDisponibles.Count || opcionInt < 0){
 						Console.Write("Por favor ingrese una opción válida: ");
 						opcion = Console.ReadLine();
 					
@@ -213,21 +213,37 @@ namespace Proyecto2022
 			// Muestro los pacientes
 			Console.WriteLine("Seleccione al paciente:");
 			imprimirPacientes(medico1);
-			Console.WriteLine("");
-			int opcion = int.Parse(Console.ReadLine());
+			Console.WriteLine("0) Atrás");
+			string opcion = Console.ReadLine();
 			
-			// Me coloco en el paciente elegido
-			Paciente pacienteElegido = new Paciente();
-			pacienteElegido = medico1.verPaciente(opcion - 1);
-			
-			// Declaro e inicializo las variables DIAGNOSTICO
-			string diagnosticoAntiguo = pacienteElegido.GetDiagnostico().ToUpper();
-			Console.Write("Ingrese el nuevo diagnóstico de {0}: ", pacienteElegido.GetNombre());
-			string diagnosticoNuevo = Console.ReadLine().ToUpper();
-			
-			// Actualizo el diagnostico
-			pacienteElegido.SetDiagnostico(diagnosticoNuevo);
-			Console.WriteLine("\nEl diagnóstico de {0} se modificó de '{1}' a '{2}' ", pacienteElegido.GetNombre().ToUpper(),diagnosticoAntiguo,diagnosticoNuevo);
+			if (opcion == "0") {} // Si la opcion es ATRAS entonces no ejecuto nada mas
+			else
+			{
+				// Chequeo que la opcion sea numerica
+				int opcionNum;
+				bool chequeoOpcion = int.TryParse(opcion, out opcionNum);
+				
+				// El programa no continua hasta que se ingrese un valor válido
+				while (!chequeoOpcion || opcionNum > medico1.cantidadPacientes()  || opcionNum < 0){
+					Console.Write("Por favor ingrese una opción válida: ");
+					opcion = Console.ReadLine();
+				
+					chequeoOpcion = int.TryParse(opcion, out opcionNum);
+				}
+				
+				// Me coloco en el paciente elegido
+				Paciente pacienteElegido = new Paciente();
+				pacienteElegido = medico1.verPaciente(opcionNum - 1);
+				
+				// Declaro e inicializo las variables DIAGNOSTICO
+				string diagnosticoAntiguo = pacienteElegido.GetDiagnostico().ToUpper();
+				Console.Write("Ingrese el nuevo diagnóstico de {0}: ", pacienteElegido.GetNombre());
+				string diagnosticoNuevo = Console.ReadLine().ToUpper();
+				
+				// Actualizo el diagnostico
+				pacienteElegido.SetDiagnostico(diagnosticoNuevo);
+				Console.WriteLine("\nEl diagnóstico de {0} se modificó de '{1}' a '{2}' ", pacienteElegido.GetNombre().ToUpper(),diagnosticoAntiguo,diagnosticoNuevo);
+			}
 		}
 		
 		// Funcion para cancelar turno
@@ -373,7 +389,7 @@ namespace Proyecto2022
 				
 				// Recorro e imprimo las obras sociales en orden alfabetico
 				obrasSociales.Sort();
-				Console.WriteLine("Las obras sociales que atiende el médico son las siguientes: \n");
+				Console.WriteLine("Obras sociales: \n");
 				foreach (string os in obrasSociales)
 				{
 					Console.WriteLine(os);
@@ -384,7 +400,7 @@ namespace Proyecto2022
 		// Funcion para agregar paciente
 		public static void agregarPaciente(Medico medico1)
 		{
-			// Declaro e inicializo las variables (datos del paciente) NOMBRE, DNI, OBRA SOCIAL y NRO DE AFILIADO
+			// Declaro e inicializo las variables (datos del paciente) NOMBRE, DNI, OBRA SOCIAL y NRO DE AFILIADO  con sus capturas de excepciones
 			Console.Write("Nombre y apellido del paciente: ");
 			string nombre = Console.ReadLine().ToUpper();
 			double num;
@@ -400,7 +416,7 @@ namespace Proyecto2022
 			string dni = Console.ReadLine();
 	            	int numDNI;
 	            	bool esNumDNI = int.TryParse(dni, out numDNI);
-	            	while ( !esNumDNI || dni.Length > 8)
+	            	while ( !esNumDNI || dni.Length > 8 || numDNI < 0)
 			{
 				Console.Write("Ingrese un DNI válido: ");
 				dni = Console.ReadLine();
